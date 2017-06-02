@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff7474</color>
-    <color name="colorPrimaryDark">#ff7474</color>
-    <color name="colorAccent">#ff7474</color>
+    <color name="colorPrimary">#16C2C2</color>
+    <color name="colorPrimaryDark">#16C2C2</color>
+    <color name="colorAccent">#16C2C2</color>
 
     <color name="main_color">#16C2C2</color>
 
@@ -10,6 +10,8 @@
     <color name="bg_White">#FFFFFF</color>
     <!-- 透明 -->
     <color name="transparent">#00000000</color>
+    <!--选择分类按下颜色-->
+    <color name="colorChoosePress">#DDD</color>
     <!-- 纯白-->
     <color name="white">#ffffff</color>
     <!--水波纹或5.0以下选择器颜色-->
@@ -23,12 +25,21 @@
     <!-- 红色 -->
     <!--item的5.0一下版本选择器颜色-->
     <color name="itemLowBackground">#d9d9d9</color>
-    <color name="maincolor">#ff7474</color>
+    <color name="maincolor">#16C2C2</color>
+    <color name="colorTheme">#007B78</color>
+    <color name="color_bule">#007B78</color>
+    <color name="colorTabText">#585858</color>
+    <!--首页分割线-->
+    <color name="colorHomeLine">#D4D4D4</color>
     <!--正文文字颜色-->
     <color name="colorContent">#ff333333</color>
     <color name="red">#ff0000</color>
     <!--桔黄色 -->
     <color name="bisque">#ffe4c4</color>
+    <!--首页item文字颜色-->
+    <color name="colorSubtitle">#999</color>
+
+    <color name="colorTitle">#666</color>
     <!--鹿皮色 -->
     <color name="moccasin">#ffe4b5</color>
     <!--中紫罗兰色 -->
@@ -40,8 +51,10 @@
     <!--透明色-->
     <color name="colorTransparent">#00000000</color>
     <!-- 黑色 -->
-    <color name="colorTheme">#ffce3d3a</color>
+
     <color name="bg_Black">#ff000000</color>
+    <color name="tx_Black">#333333</color>
+    <color name="tx_gray">#666666</color>
     <color name="bg_textmy">#c7c6cb</color>
     <!-- 灰色 -->
     <color name="mainred">#772322</color>
@@ -65,4 +78,15 @@
     <color name="prompt_success">#31c27c</color>
     <color name="prompt_error">#ff0000</color>
     <color name="prompt_warning">#f0633d</color>
+    <color name="search_layover_bg">@color/gray</color>
+    <color name="search_field_bg">@color/white_ish</color>
+
+
+    <color name="gray">#ff888888</color>
+
+    <color name="white_50">#88ffffff</color>
+    <color name="black_50">#88000000</color>
+    <color name="gray_50">#88888888</color>
+
+    <color name="white_ish">#fffefefe</color>
 </resources>

@@ -51,7 +51,7 @@ public class UserNameActivity extends BaseTitleActivity {
         protected void onNoDoubleClick(View v) {
             if(!TextUtils.isEmpty(username.getText().toString().trim())){
                 showScuess("设置成功");
-                SPUtils.put(UserNameActivity.this,"username",username.getText().toString().trim());
+                SPUtils.put("username",username.getText().toString().trim());
                 startActivity(new Intent(UserNameActivity.this,LoginActivity.class));
                 AppManager.getAppManager().finishActivity(LoginActivity.class);
                 finish();

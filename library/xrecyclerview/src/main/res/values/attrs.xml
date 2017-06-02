@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ProgressRoundView">
+        <attr name="round_color" format="color" ></attr>
+        <attr name="round_progress_color" format="color" ></attr>
+        <attr name="round_width" format="integer" ></attr>
+    </declare-styleable>
+
+</resources>

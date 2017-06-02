@@ -127,8 +127,8 @@ public class FragmentLogin extends BaseNoTitleFragment {
 
     private void initLogin() {
         ;
-        userphone.setText(SPUtils.getString(getActivity(), "phone")+"");
-        userpass.setText(SPUtils.getString(getActivity(), "passWord")+"");
+        userphone.setText(SPUtils.getString("phone","")+"");
+        userpass.setText(SPUtils.getString("passWord","")+"");
         bt_login.setOnClickListener(listener);
 
     }
@@ -163,7 +163,7 @@ public class FragmentLogin extends BaseNoTitleFragment {
                 showWarn("IYO提示：请输入密码");
                 return;
             }
-            if(TextUtils.isEmpty(SPUtils.getString(getActivity(), "phone"))){
+            if(TextUtils.isEmpty(SPUtils.getString("phone",""))){
                 rela_name.setBackground(getResources().getDrawable(
                         R.drawable.bg_border_color_cutmaincolor));
                 loginusericon.setAnimation(Tools.shakeAnimation(2));

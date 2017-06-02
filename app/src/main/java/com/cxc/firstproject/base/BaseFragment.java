@@ -15,6 +15,8 @@ import android.widget.RelativeLayout;
 import com.cxc.firstproject.R;
 import com.cxc.firstproject.utils.PerfectClickListener;
 import com.cxc.firstproject.utils.TUtil;
+import com.cxc.firstproject.view.mysnackbar.Prompt;
+import com.cxc.firstproject.view.mysnackbar.TSnackbar;
 
 import butterknife.ButterKnife;
 import rx.Subscription;
@@ -40,6 +42,10 @@ public abstract  class BaseFragment<T extends BasePresenter, E extends BaseModel
     protected RelativeLayout mContainer;
     // 动画
     private AnimationDrawable mAnimationDrawable;
+    private TSnackbar snackBar;
+    private int APP_DOWn = TSnackbar.APPEAR_FROM_TOP_TO_DOWN;
+
+    private ViewGroup viewGroup;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,6 +57,8 @@ public abstract  class BaseFragment<T extends BasePresenter, E extends BaseModel
         mContainer.addView(rootView);
         mPresenter = TUtil.getT(this, 0);
         mModel= TUtil.getT(this,1);
+        viewGroup = (ViewGroup) getActivity()
+                .findViewById(android.R.id.content).getRootView();
         if(mPresenter!=null){
             mPresenter.mContext=this.getActivity();
         }
@@ -79,6 +87,22 @@ public abstract  class BaseFragment<T extends BasePresenter, E extends BaseModel
         startActivityForResult(cls, null, requestCode);
     }
 
+    public void showScuess(String msg){
+        snackBar = TSnackbar.make(viewGroup, msg, TSnackbar.LENGTH_SHORT, APP_DOWn);
+        snackBar.setPromptThemBackground(Prompt.SUCCESS);
+        snackBar.show();
+    }
+
+    public void showfail(String msg){
+        snackBar = TSnackbar.make(viewGroup, msg, TSnackbar.LENGTH_SHORT, APP_DOWn);
+        snackBar.setPromptThemBackground(Prompt.ERROR);
+        snackBar.show();
+    }
+    public void showWarn(String msg){
+        snackBar = TSnackbar.make(viewGroup, msg, TSnackbar.LENGTH_SHORT, APP_DOWn);
+        snackBar.setPromptThemBackground(Prompt.WARNING);
+        snackBar.show();
+    }
     /**
      * 含有Bundle通过Class跳转界面
      **/
@@ -134,6 +158,7 @@ public abstract  class BaseFragment<T extends BasePresenter, E extends BaseModel
      * 在 onActivityCreated 之后第一次显示加载数据，只加载一次
      */
     protected void loadData() {
+
     }
 
     protected void onVisible() {

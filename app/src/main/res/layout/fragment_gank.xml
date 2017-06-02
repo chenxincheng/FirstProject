@@ -3,7 +3,16 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
+    <com.cxc.firstproject.view.PagerSlidingTabStrip
+        android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+        android:background="@color/white"
+        android:layout_height="40dp" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_gank"
+        android:layout_width="match_parent"
+        android:background="#fff2f4f5"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
 </LinearLayout>

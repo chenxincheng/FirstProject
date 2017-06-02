@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homepage_Gray"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <com.cxc.firstproject.view.refresh.smileyloadingview.SmileyLoadingView xmlns:slv="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/loading_view"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="visible"
+        slv:duration="2000"
+        slv:strokeWidth="3dp" />
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_sucess"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/sucess"
+        android:drawablePadding="5dp"
+        android:text="加载成功"
+        android:textSize="12sp"
+        android:textColor="@color/titlecolor"
+        />
+</LinearLayout>

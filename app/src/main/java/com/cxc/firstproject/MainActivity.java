@@ -1,6 +1,5 @@
 package com.cxc.firstproject;
 
-import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -19,21 +18,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cxc.firstproject.adapter.MyFragmentPagerAdapter;
-import com.cxc.firstproject.app.AppConstants;
 import com.cxc.firstproject.base.BaseActivity;
 import com.cxc.firstproject.ui.activity.login.LoginActivity;
 import com.cxc.firstproject.ui.fragment.BookFragment;
 import com.cxc.firstproject.ui.fragment.GankFragment;
 import com.cxc.firstproject.ui.fragment.OneFragment;
+import com.cxc.firstproject.ui.menu.NavHomePageActivity;
 import com.cxc.firstproject.utils.AppManager;
 import com.cxc.firstproject.utils.CommonUtils;
 import com.cxc.firstproject.utils.PerfectClickListener;
 import com.cxc.firstproject.utils.SPUtils;
 import com.cxc.firstproject.view.statusbar.StatusBarUtil;
+import com.cxc.firstproject.view.webview.WebViewActivity;
 
 import java.util.ArrayList;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity
         implements OnClickListener, ViewPager.OnPageChangeListener {
@@ -56,6 +57,7 @@ public class MainActivity extends BaseActivity
     ImageView llTitleOne;
     @Bind(R.id.iv_title_dou)
     ImageView llTitleDou;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
@@ -70,7 +72,7 @@ public class MainActivity extends BaseActivity
     public void initView() {
         AppManager.getAppManager().addActivity(this);
         StatusBarUtil.setColorNoTranslucentForDrawerLayout(MainActivity.this,
-                drawerLayout, CommonUtils.getColor(R.color.colorTheme));
+                drawerLayout, CommonUtils.getColor(R.color.main_color));
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -93,13 +95,20 @@ public class MainActivity extends BaseActivity
         llNavExit.setOnClickListener(this);
         LinearLayout llLogin = (LinearLayout) headerView
                 .findViewById(R.id.ll_nav_login);
+        llNavExit.setOnClickListener(this);
+        LinearLayout homePage= (LinearLayout) headerView
+                .findViewById(R.id.ll_nav_homepage);
+
+
         tvUserName = (TextView) headerView.findViewById(R.id.tv_username);
         TextView tv_Login = (TextView) headerView.findViewById(R.id.tv_login);
         LinearLayout ivHead = (LinearLayout) headerView
                 .findViewById(R.id.iv_avatar);
         TextView tvHead = (TextView) headerView.findViewById(R.id.tv_avatar);
         llLogin.setOnClickListener(listener);
-        userName = SPUtils.getString(MainActivity.this, "username");
+        ivHead.setOnClickListener(this);
+        homePage.setOnClickListener(this);
+        userName = SPUtils.getString("username","");
         if (!TextUtils.isEmpty(userName)) {
             tvUserName.setText(userName);
             tv_Login.setText("切换账号");
@@ -118,7 +127,7 @@ public class MainActivity extends BaseActivity
                 public void run() {
                     switch (v.getId()) {
                     case R.id.ll_nav_homepage:// 主页
-                        // NavHomePageActivity.startHome(MainActivity.this);
+                         NavHomePageActivity.startHome(MainActivity.this);
                         break;
                     case R.id.ll_nav_scan_download:// 扫码下载
                         // NavDownloadActivity.start(MainActivity.this);
@@ -223,7 +232,7 @@ public class MainActivity extends BaseActivity
                 }
                 break;
             case R.id.iv_avatar: // 头像进入GitHub
-//                WebViewActivity.loadUrl(v.getContext(),CommonUtils.getString(R.string.string_url_cloudreader),"CloudReader");
+                WebViewActivity.loadUrl(view.getContext(),CommonUtils.getString(R.string.string_url_cloud),"FreeDom");
                 break;
         }
 
@@ -244,5 +253,14 @@ public class MainActivity extends BaseActivity
         default:
             return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

@@ -101,7 +101,7 @@ public class WelcomeActivity extends BaseActivity{
 
     private void launchHomeScreen(){
         startActivity(new Intent(this,MainActivity.class));
-        SPUtils.put(this, AppConstants.FIRST_OPEN,true);
+        SPUtils.put(AppConstants.FIRST_OPEN,true);
         finish();
     }
 

@@ -37,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
     private ImageView ivGg;
     private TextView tvJump;
     Timer timer = new Timer();
-    int recLen = 4;
+    int recLen = 5;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,8 +54,9 @@ public class SplashActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     recLen--;
+                    tvJump.setVisibility(View.VISIBLE);
                     tvJump.setText("跳过" + recLen);
-                    if (recLen <= 0) {
+                    if (recLen <= 1) {
                         enterHomeActivity();
 
                     }
@@ -67,7 +68,7 @@ public class SplashActivity extends AppCompatActivity {
     public void initView() {
 
         // 判断是否是第一次开启应用
-        boolean isFirstOpen = SPUtils.getBoolean(this, AppConstants.FIRST_OPEN);
+        boolean isFirstOpen = SPUtils.getBoolean(AppConstants.FIRST_OPEN);
         // 如果是第一次启动，则先进入功能引导页
         if (!isFirstOpen) {
             Intent intent = new Intent(this, WelcomeActivity.class);
@@ -97,8 +98,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 ivGg.setVisibility(View.VISIBLE);
                 Glide.with(SplashActivity.this)
-                        .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494571030&di=08406eb7587f9216ffb91a6fb1fa0e9a&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.52z.com%2Fupload%2F201608%2F09%2F1470730707.jpg").into(ivGg);
-                    tvJump.setVisibility(View.VISIBLE);
+                        .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494912576482&di=26b063a2d6a7632f593d4491780d142b&imgtype=0&src=http%3A%2F%2Fimglf1.ph.126.net%2FOgFYUZbmKQt_l5sCvubNWQ%3D%3D%2F2032812281904492532.jpg").into(ivGg);
                     timer.schedule(task, 1000, 1000);
             }
         }, 2000);

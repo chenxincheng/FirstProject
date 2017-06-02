@@ -6,72 +6,73 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     >
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorTheme"
-            app:contentInsetStart="0.0dp"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:theme="@style/ToolbarStyle"
-            >
 
-            <FrameLayout
-                android:id="@+id/ll_title_menu"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/maincolor"
+        app:contentInsetStart="0.0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ToolbarStyle"
+        >
+
+        <FrameLayout
+            android:id="@+id/ll_title_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <ImageView
+                android:id="@+id/iv_title_menu"
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/titlebar_menu" />
+        </FrameLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp">
+                >
 
                 <ImageView
-                    android:id="@+id/iv_title_menu"
-                    android:layout_width="23dp"
+                    android:id="@+id/iv_title_gank"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/titlebar_menu" />
-            </FrameLayout>
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/titlebar_disco" />
 
-            <HorizontalScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/iv_title_one"
+                    android:layout_width="55dp"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    >
+                    android:src="@drawable/titlebar_music" />
 
-                    <ImageView
-                        android:id="@+id/iv_title_gank"
-                        android:layout_width="55dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:src="@drawable/titlebar_disco" />
+                <ImageView
+                    android:id="@+id/iv_title_dou"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/titlebar_friends" />
 
-                    <ImageView
-                        android:id="@+id/iv_title_one"
-                        android:layout_width="55dp"
-                        android:layout_height="match_parent"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:src="@drawable/titlebar_music" />
+            </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_title_dou"
-                        android:layout_width="55dp"
-                        android:layout_height="match_parent"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:src="@drawable/titlebar_friends" />
+        </HorizontalScrollView>
 
-                </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 
-            </HorizontalScrollView>
-
-        </android.support.v7.widget.Toolbar>
-
-        <FrameLayout
+    <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

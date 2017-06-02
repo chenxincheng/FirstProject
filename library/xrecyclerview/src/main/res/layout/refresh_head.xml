@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:id="@+id/container"
+    android:orientation="vertical">
+
+    <com.example.xrecyclerview.ProgressView
+        android:id="@+id/head_view"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android_custom:round_color="#999999"
+        android_custom:round_progress_color="#16C2C2"
+        android_custom:round_width="5" />
+</LinearLayout>

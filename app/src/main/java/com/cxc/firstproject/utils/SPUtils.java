@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.Toast;
 
+import com.cxc.firstproject.app.App;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -18,8 +20,8 @@ import java.io.Serializable;
  * 用来记录用户的习惯，保存默认设置等
  * 通用工具
  */public class SPUtils {
-    public static void put(Context context, String key, Object value) {
-        SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+    public static void put(String key, Object value) {
+        SharedPreferences sp = App.getInstance().getSharedPreferences("config", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
         if (value instanceof String) {
             edit.putString(key, (String) value);
@@ -30,7 +32,7 @@ import java.io.Serializable;
         }
         edit.commit();
     }
-    public static void putBean(Context context, String key, Object obj) {
+    public static void putBean(String key, Object obj) {
         if (obj instanceof Serializable) {// obj必须实现Serializable接口，否则会出问题
             try {
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -38,7 +40,7 @@ import java.io.Serializable;
                 oos.writeObject(obj);
                 String string64 = new String(Base64.encode(baos.toByteArray(),
                         0));
-                SharedPreferences.Editor editor = context.getSharedPreferences("config", Context.MODE_PRIVATE).edit();
+                SharedPreferences.Editor editor = App.getInstance().getSharedPreferences("config", Context.MODE_PRIVATE).edit();
                 editor.putString(key, string64).commit();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -51,10 +53,10 @@ import java.io.Serializable;
 
     }
 
-    public static Object getBean(Context context, String key) {
+    public static Object getBean(String key) {
         Object obj = null;
         try {
-            String base64 = context.getSharedPreferences("config", Context.MODE_PRIVATE).getString(key, "");
+            String base64 = App.getInstance().getSharedPreferences("config", Context.MODE_PRIVATE).getString(key, "");
             if (base64.equals("")) {
                 return null;
             }
@@ -69,14 +71,13 @@ import java.io.Serializable;
     }
     /**
      * 获取字符串
-     * @param context
      * @param key
      * @return
      *
      */
-    public static String getString(Context context, String key) {
-        SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
-        return sp.getString(key, "");
+    public static String getString(String key,String value) {
+        SharedPreferences sp = App.getInstance().getSharedPreferences("config", Context.MODE_PRIVATE);
+        return sp.getString(key, value);
     }
     public static String getToken(Context context) {
         SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
@@ -100,29 +101,27 @@ import java.io.Serializable;
 
     /**
      * 获取整数
-     * @param context
      * @param key
      * @return
      *
      */
-    public static int getInt(Context context, String key) {
-        SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+    public static int getInt(String key) {
+        SharedPreferences sp = App.getInstance().getSharedPreferences("config", Context.MODE_PRIVATE);
         return sp.getInt(key, 0);
     }
 
     /**
      * 获取布尔
-     * @param context
      * @param key
      * @return
      * 默认状态都是false
      */
-    public static boolean getBoolean(Context context, String key) {
-        SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+    public static boolean getBoolean(String key) {
+        SharedPreferences sp = App.getInstance().getSharedPreferences("config", Context.MODE_PRIVATE);
         return sp.getBoolean(key, false);
     }
 
-    public static void toastShortMessage(Context cont, String msg) {
-        Toast.makeText(cont, msg, Toast.LENGTH_SHORT).show();
+    public static void toastShortMessage(String msg) {
+        Toast.makeText(App.getInstance(), msg, Toast.LENGTH_SHORT).show();
     }
 }

@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
 
+import com.cxc.firstproject.utils.DebugUtil;
+import com.example.http.HttpUtils;
+
 import cn.bmob.sms.BmobSMS;
 
 
@@ -21,6 +24,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         baseApplication = this;
+        HttpUtils.getInstance().init(this, DebugUtil.DEBUG);
         initBmob();
     }
     private void initBmob() {

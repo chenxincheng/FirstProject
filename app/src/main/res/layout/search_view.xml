@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:paddingTop="20dp"
+        android:gravity="bottom"
+        android:layout_height="wrap_content"
+        android:background="@color/maincolor"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|center_vertical"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom|center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/action_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:paddingLeft="@dimen/search_icon_padding"
+                    android:paddingRight="@dimen/search_icon_padding"
+                    app:srcCompat="@drawable/ic_action_navigation_arrow_back" />
+
+                <EditText
+                    android:id="@+id/et_search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_border_color_white"
+                    android:hint="搜索"
+                    android:imeOptions="actionSearch|flagNoExtractUi"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/search_view_text_padding"
+                    android:paddingRight="@dimen/search_view_text_padding"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray_50"
+                    android:textCursorDrawable="@null" />
+
+                <ImageButton
+                    android:id="@+id/action_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:paddingLeft="@dimen/search_icon_padding"
+                    android:paddingRight="@dimen/search_icon_padding"
+                    app:srcCompat="@drawable/ic_action_voice_search" />
+
+                <ImageButton
+                    android:id="@+id/action_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:paddingLeft="@dimen/search_icon_padding"
+                    android:paddingRight="@dimen/search_icon_padding"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_action_navigation_close" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/transparent_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:background="@color/search_layover_bg" />
+
+    <ListView
+        android:id="@+id/suggestion_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transparent_view"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
+
+</RelativeLayout>

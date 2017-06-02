@@ -44,7 +44,7 @@
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
-        android:text="XTC让你更懂生活"
+        android:text="ZY让你更懂生活"
         android:layout_alignParentBottom="true"
         android:textSize="14sp"
         android:layout_marginBottom="15dp"
@@ -66,9 +66,8 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="40dp"
         android:visibility="gone"
-        android:background="@drawable/shape_jump"
+        android:background="@drawable/select_jump"
         android:gravity="center"
-        android:text="4"
         android:textColor="#fff"
-        android:textSize="16sp" />
+        android:textSize="13sp" />
 </RelativeLayout>

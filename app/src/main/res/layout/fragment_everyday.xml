@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <com.cxc.firstproject.view.refresh.TouchEventPtrFrameLayout
+        android:id="@+id/material_style_ptr_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/homepage_Gray">
+
+        <ScrollView
+            android:id="@+id/scrollViews"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.example.xrecyclerview.XRecyclerView
+                android:id="@+id/rv_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </com.example.xrecyclerview.XRecyclerView>
+        </ScrollView>
+    </com.cxc.firstproject.view.refresh.TouchEventPtrFrameLayout>
+</RelativeLayout>

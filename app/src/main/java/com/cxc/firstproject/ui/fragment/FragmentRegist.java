@@ -32,13 +32,13 @@ import cn.bmob.sms.exception.BmobException;
 import cn.bmob.sms.listener.RequestSMSCodeListener;
 import cn.bmob.sms.listener.VerifySMSCodeListener;
 
+public class FragmentRegist extends BaseNoTitleFragment {
+    @Bind(R.id.next)
+    Button nextBt;
 /**
  * 作者：chenxincheng on 2017/4/25. 邮件：chenxincheng@xwtec.cn
  */
 
-public class FragmentRegist extends BaseNoTitleFragment {
-    @Bind(R.id.next)
-    Button nextBt;
     @Bind(R.id.userpassword)
     EditTextWithDel userpassword;
     @Bind(R.id.send_smscode)
@@ -140,8 +140,8 @@ public class FragmentRegist extends BaseNoTitleFragment {
                                             Prompt.SUCCESS).setText("注册成功")
                                             .setDuration(TSnackbar.LENGTH_LONG)
                                             .show();
-                                    SPUtils.put(getActivity(), "phone", phone);
-                                    SPUtils.put(getActivity(), "passWord",
+                                    SPUtils.put("phone", phone);
+                                    SPUtils.put("passWord",
                                             password);
                                     startActivity(new Intent(getActivity(),
                                             UserNameActivity.class));
